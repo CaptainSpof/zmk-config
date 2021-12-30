@@ -7,7 +7,25 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
+// layers
+
+#define DEFAULT 0
+#define LOWER   1
+#define RAISE   2
+
 / {
+    behaviors {
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS";
+            #binding-cells = <2>;
+            tapping-term-ms = <300>;
+            quick_tap_ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+    };
+
 	keymap {
 		compatible = "zmk,keymap";
 
@@ -18,7 +36,39 @@
 // | SHIFT |  Z  |  X  |  C   |  V   |  B    | L SHIFT | L SHIFT |  | L SHIFT |   DEL   |  N   |  M    |  ,    |  .   |   /   | CTRL |
 //                     |  ⮾   | GUI  | L-ALT |   SPC   |   RET   |  |   RET   |   BSPC  | BSPC | R-ALT |   ⮾   |
 			bindings = <
-	&kp ESC   &kp Q &kp W &kp E &kp R &kp T                                                &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSLH
+	&kp ESC   &kp Q       &kp W       &kp E      &kp R      &kp T                          &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSLH
+	&kp TAB   &hm LSHFT A &hm LCTRL S &hm LALT D &hm LGUI F &kp G                          &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
+	&kp LSHFT &kp Z &kp X &kp C &kp V &kp B &kp LSHFT &mo LOWER        &mo RAISE &kp DEL   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RCTRL
+	                &none         &kp A &kp LALT &kp SPACE &kp RET     &kp RET   &kp BSPC  &kp BSPC &kp RALT &none
+			>;
+
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+		};
+
+		lower_layer {
+// ---------------------------------------------------------------------------------------------------------------------------------
+// |  ESC  |  1  |  2  |  3   |  4   |  5    |                                          |  6   |  7    |  8    |  9   |   0   |   \  |
+// |  TAB  |  A  |  S  |  D   |  F   |  G    |                                          |  H   |  J    |  K    |  L   |   ;   |   '  |
+// | SHIFT |  Z  |  X  |  C   |  V   |  B    | L SHIFT | L SHIFT |  | L SHIFT |   DEL   |  N   |  M    |  ,    |  .   |   /   | CTRL |
+//                     |  ⮾   | GUI  | L-ALT |   SPC   |   RET   |  |   RET   |   BSPC  | BSPC | R-ALT |   ⮾   |
+			bindings = <
+	&kp ESC   &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                                           &kp N6 &kp N7  &kp N8     &kp N9   &kp N0    &kp BSLH
+	&kp TAB   &kp A &kp S &kp D &kp F &kp G                                                &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
+	&kp LSHFT &kp Z &kp X &kp C &kp V &kp B &kp LSHFT &kp LSHFT        &kp LSHFT &kp DEL   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RCTRL
+	                &none         &kp A &kp LALT &kp SPACE &kp RET     &kp RET   &kp BSPC  &kp BSPC &kp RALT &none
+			>;
+
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+		};
+
+		raise_layer {
+// ---------------------------------------------------------------------------------------------------------------------------------
+// |  ESC  |  1  |  2  |  3   |  4   |  5    |                                          |  6   |  7    |  8    |  9   |   0   |   \  |
+// |  TAB  |  A  |  S  |  D   |  F   |  G    |                                          |  H   |  J    |  K    |  L   |   ;   |   '  |
+// | SHIFT |  Z  |  X  |  C   |  V   |  B    | L SHIFT | L SHIFT |  | L SHIFT |   DEL   |  N   |  M    |  ,    |  .   |   /   | CTRL |
+//                     |  ⮾   | GUI  | L-ALT |   SPC   |   RET   |  |   RET   |   BSPC  | BSPC | R-ALT |   ⮾   |
+			bindings = <
+	&kp ESC   &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                                           &kp N6 &kp N7  &kp N8     &kp N9   &kp N0    &kp BSLH
 	&kp TAB   &kp A &kp S &kp D &kp F &kp G                                                &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
 	&kp LSHFT &kp Z &kp X &kp C &kp V &kp B &kp LSHFT &kp LSHFT        &kp LSHFT &kp DEL   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RCTRL
 	                                &none &none &kp LALT &mt LSHFT SPC  &kp RET       &kp RET   &kp BSPC  &mt RSHFT BSPC &kp RALT &none
