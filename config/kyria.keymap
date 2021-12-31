@@ -45,7 +45,7 @@
 //                     |  ⮾   | GUI  | L-ALT |   SPC   |   RET   |  |   RET   |   BSPC  | BSPC | R-ALT |   ⮾   |
 			bindings = <
 	&kp TAB   &kp BE_B    &kp BE_ECU  &kp BE_P   &kp BE_O   &kp BE_W                       &kp BE_CIRC &kp BE_V &kp BE_D &kp BE_L &kp BE_J &kp BE_CCED
-	&mt LCTRL ESC &hm LSHFT BE_A &hm LCTRL BE_U &hm LALT BE_I &hm LGUI BE_E &kp BE_COMMA       &kp BE_C    &kp BE_T &kp BE_S &kp BE_R &kp BE_N &kp BE_M
+	&mt LCTRL ESC &hm LSHFT BE_A &hm LCTRL BE_U &hm LALT BE_I &hm LGUI BE_E &kp BE_COMMA       &kp BE_C    &hm RGUI BE_T &hm RALT BE_S &hm RCTRL BE_R &hm RSHFT BE_N &kp BE_M
 	&kp LSHFT &kp BE_Z  &kp BE_Y &kp BE_X &kp BE_DOT &kp BE_K &kp LSHFT &mo LOWER        &mo RAISE &kp DEL   &kp BE_QUOT &kp BE_Q &kp BE_G  &kp BE_H &kp BE_F &kp RCTRL
 	                                &kp C_PP &kp LALT &mt LSHFT SPC  &lt LOWER RET &none       &kp RET   &lt RAISE BSPC  &mt RSHFT BSPC &kp RALT &none
 			>;
