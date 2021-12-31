@@ -39,18 +39,18 @@
 
 		default_layer {
 // ---------------------------------------------------------------------------------------------------------------------------------
-// |  ESC  |  B  |  É  |  P   |  O   |  W    |                                          |  ^   |  V    |  D    |  L   |   J   |   Ç  |
-// |  TAB  |  A  |  U  |  I   |  E   |  ,    |                                          |  C   |  T    |  S    |  R   |   N   |   M  |
+// |  TAB  |  B  |  É  |  P   |  O   |  W    |                                          |  ^   |  V    |  D    |  L   |   J   |   Ç  |
+// |  ESC  |  A  |  U  |  I   |  E   |  ,    |                                          |  C   |  T    |  S    |  R   |   N   |   M  |
 // | SHIFT |  Z  |  Y  |  X   |  .   |  K    | L SHIFT |  LOWER  |  |  RAISE  |   DEL   |  '   |  Q    |  G    |  H   |   F   | CTRL |
 //                     |  ⮾   | GUI  | L-ALT |   SPC   |   RET   |  |   RET   |   BSPC  | BSPC | R-ALT |   ⮾   |
 			bindings = <
-	&kp ESC   &kp BE_B    &kp BE_ECU  &kp BE_P   &kp BE_O   &kp BE_W                       &kp BE_CIRC &kp BE_V &kp BE_D &kp BE_L &kp BE_J &kp BE_CCED
-	&kp TAB   &hm LSHFT BE_A &hm LCTRL BE_U &hm LALT BE_I &hm LGUI BE_E &kp BE_COMMA       &kp BE_C    &kp BE_T &kp BE_S &kp BE_R &kp BE_N &kp BE_M
+	&kp TAB   &kp BE_B    &kp BE_ECU  &kp BE_P   &kp BE_O   &kp BE_W                       &kp BE_CIRC &kp BE_V &kp BE_D &kp BE_L &kp BE_J &kp BE_CCED
+	&mt LCTRL ESC &hm LSHFT BE_A &hm LCTRL BE_U &hm LALT BE_I &hm LGUI BE_E &kp BE_COMMA       &kp BE_C    &kp BE_T &kp BE_S &kp BE_R &kp BE_N &kp BE_M
 	&kp LSHFT &kp BE_Z  &kp BE_Y &kp BE_X &kp BE_DOT &kp BE_K &kp LSHFT &mo LOWER        &mo RAISE &kp DEL   &kp BE_QUOT &kp BE_Q &kp BE_G  &kp BE_H &kp BE_F &kp RCTRL
-	                                &none &none &kp LALT &mt LSHFT SPC  &kp RET       &kp RET   &kp BSPC  &mt RSHFT BSPC &kp RALT &none
+	                                &kp C_PP &kp LALT &mt LSHFT SPC  &lt LOWER RET &none       &kp RET   &lt RAISE BSPC  &mt RSHFT BSPC &kp RALT &none
 			>;
 
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp C_PREV C_NEXT &inc_dec_kp C_VOL_DN C_VOL_UP>;
 		};
 
 
@@ -64,7 +64,7 @@
 	&kp ESC   &kp BE_DQUOT &kp BE_LESS &kp BE_GREAT &kp BE_LBRA &kp BE_RBRA                &kp BE_AT &kp BE_PLUS &kp BE_MINUS &kp BE_SLASH &kp BE_AST &kp BE_EQUAL
 	t____     t____        t____       t____        t____       t____                      t____     t____       t____        t____        t____      t____
 	t____     t____        t____       t____        t____       t____                      t____     t____       t____        t____        t____      t____
-	                                     &none   t____   t____   t____   t____    t____   t____   t____   t____   &none
+	                                     &none   t____   t____   t____   t____    t____   t____   &kp DEL   t____   &none
 			>;
 
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -80,7 +80,7 @@
 	&kp ESC   &kp BE_1 &kp BE_2 &kp BE_3 &kp BE_4 &kp BE_5                                           &kp BE_6 &kp BE_7 &kp BE_8 &kp BE_9 &kp BE_0 &kp BE_EQUAL
 	t____     t____        t____       t____        t____       t____                      t____     t____       t____        t____        t____      t____
 	t____     t____        t____       t____        t____       t____                      t____     t____       t____        t____        t____      t____
-	                                     &none   t____   t____   t____   t____    t____   t____   t____   t____   &none
+	                                     &none   t____   t____   t____   t____    t____   t____   &kp DEL   t____   &none
 			>;
 
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
