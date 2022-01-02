@@ -37,6 +37,11 @@
               # utils
               usbutils
             ];
+
+            shellHook = ''
+              export ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
+              export GNUARMEMB_TOOLCHAIN_PATH=${pkgs.gcc-arm-embedded}
+            '';
           };
       });
 }
