@@ -21,6 +21,21 @@
 #define _____ &none
 #define t____ &trans
 
+#define c_ESC LCTRL ESC
+
+#define s_A LSHFT _A
+#define c_U LCTRL _U
+#define a_I LALT _I
+#define g_E LGUI _E
+#define s_N RSHFT _N
+#define c_R RCTRL _R
+#define a_S RALT _S
+#define g_T RGUI _T
+#define s_SPC LSHFT SPC
+#define l_RET LOWER RET
+#define r_BSPC RAISE BSPC
+#define s_BSPC RSHFT BSPC
+
 / {
     behaviors {
         hm: homerow_mods {
@@ -42,12 +57,12 @@
 // |  TAB  |  B  |  É  |  P   |  O   |  W    |                                          |  ^   |  V    |  D    |  L   |   J   |   Ç  |
 // |  ESC  |  A  |  U  |  I   |  E   |  ,    |                                          |  C   |  T    |  S    |  R   |   N   |   M  |
 // | SHIFT |  Z  |  Y  |  X   |  .   |  K    | L SHIFT |  LOWER  |  |  RAISE  |   DEL   |  '   |  Q    |  G    |  H   |   F   | CTRL |
-//                     |  ⮾   | GUI  | L-ALT |   SPC   |   RET   |  |   RET   |   BSPC  | BSPC | R-ALT |   ⮾   |
+//                     |  ⮾  | L-ALT | S·SPC |   SPC   |   RET  |  |   RET   |   BSPC  | BSPC | R-ALT |   ⮾   |
 			bindings = <
-	&kp TAB   &kp BE_B    &kp BE_ECU  &kp BE_P   &kp BE_O   &kp BE_W                       &kp BE_CIRC &kp BE_V &kp BE_D &kp BE_L &kp BE_J &kp BE_CCED
-	&mt LCTRL ESC &hm LSHFT BE_A &hm LCTRL BE_U &hm LALT BE_I &hm LGUI BE_E &kp BE_COMMA       &kp BE_C    &hm RGUI BE_T &hm RALT BE_S &hm RCTRL BE_R &hm RSHFT BE_N &kp BE_M
-	&kp LSHFT &kp BE_Z  &kp BE_Y &kp BE_X &kp BE_DOT &kp BE_K &kp LSHFT &mo LOWER        &mo RAISE &kp DEL   &kp BE_QUOT &kp BE_Q &kp BE_G  &kp BE_H &kp BE_F &kp RCTRL
-	                                &kp C_PP &kp LALT &mt LSHFT SPC  &lt LOWER RET &none       &kp RET   &lt RAISE BSPC  &mt RSHFT BSPC &kp RALT &none
+	&kp TAB   &kp _B  &kp _ECU &kp _P  &kp _O    &kp _W                                            &kp _CIRC  &kp _V   &kp _D  &kp _L  &kp _J  &kp _CCED
+	&mt c_ESC &hm s_A &hm c_U  &hm a_I &hm g_E   &kp _COMMA                                        &kp _C     &hm g_T  &hm a_S &hm c_R &hm s_N &kp _M
+	&kp LSHFT &kp _Z  &kp _Y   &kp _X  &kp _DOT  &kp _K &kp LSHFT &mo LOWER   &mo RAISE &kp DEL    &kp _QUOT  &kp _Q   &kp _G  &kp _H  &kp _F  &kp RCTRL
+	                           &kp C_PP &kp LALT &mt s_SPC  &lt l_RET &none   &kp RET   &lt r_BSPC &mt s_BSPC &kp RALT &none
 			>;
 
             sensor-bindings = <&inc_dec_kp C_PREV C_NEXT &inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -61,7 +76,7 @@
 // | SHIFT |  Z  |  X  |  C   |  V   |  B    | L SHIFT | L SHIFT |  | L SHIFT |   DEL   |  N   |  M    |  ,    |  .   |   /   | CTRL |
 //                     |  ⮾   | GUI  | L-ALT |   SPC   |   RET   |  |   RET   |   BSPC  | BSPC | R-ALT |   ⮾   |
 			bindings = <
-	&kp ESC   &kp BE_DQUOT &kp BE_LESS &kp BE_GREAT &kp BE_LBRA &kp BE_RBRA                &kp BE_AT &kp BE_PLUS &kp BE_MINUS &kp BE_SLASH &kp BE_AST &kp BE_EQUAL
+	&kp ESC   &kp _DQUOT &kp _LESS &kp _GREAT &kp _LBRA &kp _RBRA                &kp _AT &kp _PLUS &kp _MINUS &kp _SLASH &kp _AST &kp _EQUAL
 	t____     t____        t____       t____        t____       t____                      t____     t____       t____        t____        t____      t____
 	t____     t____        t____       t____        t____       t____                      t____     t____       t____        t____        t____      t____
 	                                     &none   t____   t____   t____   t____    t____   t____   &kp DEL   t____   &none
@@ -77,7 +92,7 @@
 // | SHIFT |  Z  |  X  |  C   |  V   |  B    | L SHIFT | L SHIFT |  | L SHIFT |   DEL   |  N   |  M    |  ,    |  .   |   /   | CTRL |
 //                     |  ⮾   | GUI  | L-ALT |   SPC   |   RET   |  |   RET   |   BSPC  | BSPC | R-ALT |   ⮾   |
 			bindings = <
-	&kp ESC   &kp BE_1 &kp BE_2 &kp BE_3 &kp BE_4 &kp BE_5                                           &kp BE_6 &kp BE_7 &kp BE_8 &kp BE_9 &kp BE_0 &kp BE_EQUAL
+	&kp ESC   &kp _1 &kp _2 &kp _3 &kp _4 &kp _5                                           &kp _6 &kp _7 &kp _8 &kp _9 &kp _0 &kp _EQUAL
 	t____     t____        t____       t____        t____       t____                      t____     t____       t____        t____        t____      t____
 	t____     t____        t____       t____        t____       t____                      t____     t____       t____        t____        t____      t____
 	                                     &none   t____   t____   t____   t____    t____   t____   &kp DEL   t____   &none

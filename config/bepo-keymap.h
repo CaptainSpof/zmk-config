@@ -12,61 +12,61 @@
  * └─────┴────┴─────┴───────────────────────┴─────┴────┴─────┘
  */
 // Row 1
-#define BE_DOL      GRAVE              // $
-#define BE_DQUOT    LS(SINGLE_QUOTE)   // "
-#define BE_LESS     LS(COMMA)          // <
-#define BE_GREAT    LS(DOT)            // >
-/* #define BE_LGUIL    EQUAL              // ´ (dead) */
-/* #define BE_RGUIL    EQUAL              // ´ (dead) */
-#define BE_LBRA     LS(NUMBER_9)       // (
-#define BE_RBRA     LS(NUMBER_0)       // )
-#define BE_AT       LS(NUMBER_2)       // @
-#define BE_PLUS     LS(EQUAL)          // +
-#define BE_MINUS    MINUS              // -
-#define BE_SLASH    SLASH              // /
-#define BE_AST      LS(NUMBER_8)       // *
-#define BE_EQUAL    EQUAL              // =
-#define BE_PERC     LS(NUMBER_5)       // %
+#define _DOL      GRAVE              // $
+#define _DQUOT    LS(SINGLE_QUOTE)   // "
+#define _LESS     LS(COMMA)          // <
+#define _GREAT    LS(DOT)            // >
+/* #define _LGUIL    EQUAL              // ´ (dead) */
+/* #define _RGUIL    EQUAL              // ´ (dead) */
+#define _LBRA     LS(NUMBER_9)       // (
+#define _RBRA     LS(NUMBER_0)       // )
+#define _AT       LS(NUMBER_2)       // @
+#define _PLUS     LS(EQUAL)          // +
+#define _MINUS    MINUS              // -
+#define _SLASH    SLASH              // /
+#define _AST      LS(NUMBER_8)       // *
+#define _EQUAL    EQUAL              // =
+#define _PERC     LS(NUMBER_5)       // %
 
 // Row 2
-#define BE_B        Q                  // B
-#define BE_ECU      W                  // É
-#define BE_P        E                  // P
-#define BE_O        R                  // O
-#define BE_EGR      T                  // È
-#define BE_CIRC     Y                  // ^ (dead)
-#define BE_V        U                  // V
-#define BE_D        I                  // D
-#define BE_L        O                  // L
-#define BE_J        P                  // J
-#define BE_Z        LEFT_BRACKET       // Z
-#define BE_W        RIGHT_BRACKET      // W
-#define BE_CCED     BACKSLASH          // Ç
+#define _B        Q                  // B
+#define _ECU      W                  // É
+#define _P        E                  // P
+#define _O        R                  // O
+#define _EGR      T                  // È
+#define _CIRC     Y                  // ^ (dead)
+#define _V        U                  // V
+#define _D        I                  // D
+#define _L        O                  // L
+#define _J        P                  // J
+#define _Z        LEFT_BRACKET       // Z
+#define _W        RIGHT_BRACKET      // W
+#define _CCED     BACKSLASH          // Ç
 
 // Row 3
-#define BE_A        A                  // A
-#define BE_U        S                  // U
-#define BE_I        D                  // I
-#define BE_E        F                  // E
-#define BE_COMMA    G                  // ,
-#define BE_C        H                  // C
-#define BE_T        J                  // T
-#define BE_S        K                  // S
-#define BE_R        L                  // R
-#define BE_N        SEMICOLON          // N
-#define BE_M        SINGLE_QUOTE       // M
+#define _A        A                  // A
+#define _U        S                  // U
+#define _I        D                  // I
+#define _E        F                  // E
+#define _COMMA    G                  // ,
+#define _C        H                  // C
+#define _T        J                  // T
+#define _S        K                  // S
+#define _R        L                  // R
+#define _N        SEMICOLON          // N
+#define _M        SINGLE_QUOTE       // M
 
 // Row 4
-#define BE_ACU      Z                  // À
-#define BE_Y        X                  // Y
-#define BE_X        C                  // X
-#define BE_DOT      V                  // .
-#define BE_K        B                  // K
-#define BE_QUOT     N                  // '
-#define BE_Q        M                  // Q
-#define BE_G        COMMA              // G
-#define BE_H        PERIOD             // H
-#define BE_F        SLASH              // F
+#define _ACU      Z                  // À
+#define _Y        X                  // Y
+#define _X        C                  // X
+#define _DOT      V                  // .
+#define _K        B                  // K
+#define _QUOT     N                  // '
+#define _Q        M                  // Q
+#define _G        COMMA              // G
+#define _H        PERIOD             // H
+#define _F        SLASH              // F
 
 /* Shifted symbols
  * ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬─────┐
@@ -82,28 +82,28 @@
  * └─────┴────┴─────┴───────────────────────┴─────┴────┴─────┘
  */
 // Row 1
-#define BE_HASH     LS(NUMBER_3)      // #
-#define BE_1        NUMBER_1          // 1
-#define BE_2        NUMBER_2          // 2
-#define BE_3        NUMBER_3          // 3
-#define BE_4        NUMBER_4          // 4
-#define BE_5        NUMBER_5          // 5
-#define BE_6        NUMBER_6          // 6
-#define BE_7        NUMBER_7          // 7
-#define BE_8        NUMBER_8          // 8
-#define BE_9        NUMBER_9          // 9
-#define BE_0        NUMBER_0          // 0
-#define BE_DEG      LS(BE_SS)         // ?
-#define BE_GRAV     LS(BE_ACUT)       // ` (dead)
+#define _HASH     LS(NUMBER_3)      // #
+#define _1        NUMBER_1          // 1
+#define _2        NUMBER_2          // 2
+#define _3        NUMBER_3          // 3
+#define _4        NUMBER_4          // 4
+#define _5        NUMBER_5          // 5
+#define _6        NUMBER_6          // 6
+#define _7        NUMBER_7          // 7
+#define _8        NUMBER_8          // 8
+#define _9        NUMBER_9          // 9
+#define _0        NUMBER_0          // 0
+#define _DEG      LS(_SS)         // ?
+#define _GRAV     LS(_ACUT)       // ` (dead)
 // Row 2
-/* #define BE_ASTR     LS(BE_PLUS)       // * */
+/* #define _ASTR     LS(_PLUS)       // * */
 // Row 3
-/* #define BE_QUOT     LS(BE_HASH)       // ' */
+/* #define _QUOT     LS(_HASH)       // ' */
 // Row 4
-/* #define BE_RABK     LS(BE_LABK)       // > */
-/* #define BE_SCLN     LS(BE_COMM)       // ; */
-/* #define BE_COLN     LS(BE_DOT)        // : */
-/* #define BE_UNDS     LS(BE_MINS)       // _ */
+/* #define _RABK     LS(_LABK)       // > */
+/* #define _SCLN     LS(_COMM)       // ; */
+/* #define _COLN     LS(_DOT)        // : */
+/* #define _UNDS     LS(_MINS)       // _ */
 
 /* /\* Alted symbols (Mac) */
 /*  * ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬─────┐ */
@@ -119,23 +119,23 @@
 /*  * └─────┴────┴─────┴───────────────────────┴─────┴────┴─────┘ */
 /*  *\/ */
 /* // Row 1 */
-/* #define BE_EURO     RA(BE_E)          // € */
+/* #define _EURO     RA(_E)          // € */
 /* // Win */
-/* #define BE_W_LBRC   RA(NUMBER_8)      // [ */
-/* #define BE_W_RBRC   RA(NUMBER_9)      // ] */
-/* #define BE_W_PIPE   RA(BE_LABK)       // | */
-/* #define BE_W_LCBR   RA(NUMBER_7)      // { */
-/* #define BE_W_RCBR   RA(NUMBER_0)      // } */
-/* #define BE_W_AT     RA(BE_Q)          // @ */
-/* #define BE_W_TILD   RA(BE_PLUS)       // ~ */
+/* #define _W_LBRC   RA(NUMBER_8)      // [ */
+/* #define _W_RBRC   RA(NUMBER_9)      // ] */
+/* #define _W_PIPE   RA(_LABK)       // | */
+/* #define _W_LCBR   RA(NUMBER_7)      // { */
+/* #define _W_RCBR   RA(NUMBER_0)      // } */
+/* #define _W_AT     RA(_Q)          // @ */
+/* #define _W_TILD   RA(_PLUS)       // ~ */
 /* // Mac */
-/* #define BE_M_LBRC   LA(NUMBER_5)      // [ */
-/* #define BE_M_RBRC   LA(NUMBER_6)      // ] */
-/* #define BE_M_PIPE   LA(NUMBER_7)      // | */
-/* #define BE_M_LCBR   LA(NUMBER_8)      // { */
-/* #define BE_M_RCBR   LA(NUMBER_9)      // } */
-/* #define BE_M_AT     LA(BE_L)          // @ */
-/* #define BE_M_TILD   LA(BE_N)          // ~ */
+/* #define _M_LBRC   LA(NUMBER_5)      // [ */
+/* #define _M_RBRC   LA(NUMBER_6)      // ] */
+/* #define _M_PIPE   LA(NUMBER_7)      // | */
+/* #define _M_LCBR   LA(NUMBER_8)      // { */
+/* #define _M_RCBR   LA(NUMBER_9)      // } */
+/* #define _M_AT     LA(_L)          // @ */
+/* #define _M_TILD   LA(_N)          // ~ */
 
 /* /\* Shift+Alted symbols */
 /*  * ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬─────┐ */
@@ -152,6 +152,6 @@
 /*  *\/ */
 /* // Row 1 */
 /* // Win */
-/* #define BE_W_BSLS   RA(BE_SS)         // (backslash) */
+/* #define _W_BSLS   RA(_SS)         // (backslash) */
 /* // Mac */
-/* #define BE_M_BSLS   LS(LA(NUMBER_7))  // (backslash) */
+/* #define _M_BSLS   LS(LA(NUMBER_7))  // (backslash) */
