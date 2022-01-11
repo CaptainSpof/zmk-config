@@ -10,12 +10,15 @@
 #include "bepo-keymap.h"
 
 #define QUICK_TAP_TIMEOUT 300
-// layers
+#define STICKY_TIMEOUT 5000
 
-#define DEFAULT 0
-#define LOWER   1
-#define RAISE   2
-#define QWERTY  3
+// layers
+#define DEFAULT   0
+#define LOWER     1
+#define RAISE     2
+#define WIN_CTRL  3
+#define FN_CTRL   4
+#define QWERTY    5
 
 
 // None/Trans
@@ -24,6 +27,8 @@
 
 #define c_ESC LCTRL ESC
 
+#define s_Eq LSHFT _EQUAL
+#define s_Min RSHFT _MINUS
 #define s_A LSHFT _A
 #define a_U LALT _U
 #define c_I LCTRL _I
@@ -37,12 +42,52 @@
 #define r_RET RAISE RET
 #define s_BSPC RSHFT BSPC
 
+#define dquot_B _DQUOT _B
+#define less_ECU _LESS _ECU
+#define great_P _GREAT _P
+#define lbra_O _LBRA _O
+#define rbra_W _RBRA _W
+
+#define at_CIRC _AT _CIRC
+#define plus_V _PLUS _V
+#define min_D _MINUS _D
+#define sls_L _SLASH _L
+#define ast_J _AST _J
+
 &mt {
   flavor = "tap-preferred";
   quick-tap-ms = <QUICK_TAP_TIMEOUT>;
 };
 
+&sl { release-after-ms = <STICKY_TIMEOUT>; };
+
 / {
+    combos {
+      compatible = "zmk,combos";
+        combo_esc {
+          timeout-ms = <50>;
+          key-positions = <0 11>;
+          bindings = <&to DEFAULT>;
+      };
+        combo_ctrl_alt {
+          timeout-ms = <75>;
+          key-positions = <14 15>;
+          bindings = <&sk LC(LALT)>;
+          layers = <FN_CTRL>;
+      };
+        combo_shift {
+          timeout-ms = <75>;
+          key-positions = <15 16>;
+          bindings = <&sk LSHFT>;
+          layers = <FN_CTRL>;
+      };
+        combo_caps_word {
+          timeout-ms = <75>;
+          key-positions = <42 47>;
+          bindings = <&caps_word>;
+      };
+    };
+
     behaviors {
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
@@ -62,13 +107,13 @@
 // ---------------------------------------------------------------------------------------------------------------------------------
 // |  TAB  |  B  |  É  |  P   |  O   |  W    |                                          |  ^   |  V    |  D    |  L   |   J   |   Ç  |
 // |  ESC  |  A  |  U  |  I   |  E   |  ,    |                                          |  C   |  T    |  S    |  R   |   N   |   M  |
-// | SHIFT |  Z  |  Y  |  X   |  .   |  K    | L SHIFT |  LOWER  |  |  RAISE  |   DEL   |  '   |  Q    |  G    |  H   |   F   | CTRL |
-//                     |  ⮾   | L-ALT | S·SPC | R·RET |   none  |  |   RET   |   RET  | BSPC | R-ALT |   ⮾   |
+// |SHIFT·=|  Z  |  Y  |  X   |  .   |  K    | L SHIFT |  LOWER  |  |  RAISE  |   DEL   |  '   |  Q    |  G    |  H   |   F   |   =  |
+//                     |  ⮾   | L-ALT | S·SPC | R·RET | WIN_CTRL |  |   RET   |   RET  | BSPC | R-ALT |   ⮾   |
 			bindings = <
-	&kp TAB   &kp _B  &kp _ECU &kp _P  &kp _O    &kp _W                                            &kp _CIRC  &kp _V   &kp _D  &kp _L  &kp _J  &kp _CCED
-	&mt c_ESC &hm s_A &hm a_U  &hm c_I &hm g_E   &kp _COMMA                                        &kp _C     &hm g_T  &hm c_S &hm a_R &hm s_N &kp _M
-	&kp LSHFT &kp _Z  &kp _Y   &kp _X  &kp _DOT  &kp _K &kp LSHFT &mo LOWER   &mo RAISE &kp DEL    &kp _QUOT  &kp _Q   &kp _G  &kp _H  &kp _F  &kp RCTRL
-	                           &kp C_PP &kp LALT &mt s_SPC  &lt l_RET &none   &kp RET   &lt r_RET &mt s_BSPC &kp _A &none
+	&kp TAB   &mt dquot_B &mt less_ECU &mt great_P &mt lbra_O &mt rbra_W                                         &mt at_CIRC &mt plus_V &mt min_D &mt sls_L &mt ast_J &kp _CCED
+	&mt c_ESC &hm s_A     &hm a_U      &hm c_I     &hm g_E    &kp _COMMA                                         &kp _C      &hm g_T    &hm c_S   &hm a_R   &hm s_N   &kp _M
+	&mt s_Eq  &kp _Z      &kp _Y       &kp _X      &kp _DOT   &kp _K  &sl FN_CTRL  &tog LOWER &tog RAISE &kp DEL &kp _QUOT    &kp _Q     &kp _G    &kp _H    &kp _F    &mt s_Min
+	                           &kp C_PP &kp LALT &mt s_SPC  &lt l_RET &sl WIN_CTRL &kp RET    &lt r_RET  &mt s_BSPC &kp RALT &none
 			>;
 
             sensor-bindings = <&inc_dec_kp C_PREV C_NEXT &inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -77,15 +122,15 @@
 
 		lower_layer {
 // ---------------------------------------------------------------------------------------------------------------------------------
-// |   $   |  "  |  «  |  »   |  (   |  )    |                                          |  @   |  +    |  -    |  /   |   *   |   =  |
+// |   $   |  "  |  «  |  »   |  (   |  )    |                                          |  @   |  +    |  -    |  /   |   *   |   %  |
 // |  TAB  |  à  |  <  |  >   |  [   |  ]    |                                          | LEFT | DOWN  |  UP   | RIGHT|   %   |      |
-// | SHIFT |  è  |  X  |  C   |  {   |  }    | L SHIFT | L SHIFT |  | L SHIFT |   DEL   |  N   |  M    |  ,    |  .   |   /   | CTRL |
+// | SHIFT |  è  |  Y  |  X   |  {   |  }    | L SHIFT | L SHIFT |  | L SHIFT |   DEL   |  '   |   Q   |   G   |   H  |   F   | CTRL |
 //                     |  ⮾   | GUI  | L-ALT |   SPC   |   RET   |  |   RET   |   BSPC  | BSPC | R-ALT |   ⮾   |
 			bindings = <
-	&kp _DOL  &kp _DQUOT   &kp _LGUIL  &kp _RGUIL   &kp _LBRA   &kp _RBRA                  &kp _AT   &kp _PLUS   &kp _MINUS   &kp _SLASH   &kp _AST   &kp _EQUAL
-	t____     &kp _ACU     &kp _LESS   &kp _GREAT   &kp _LSBRA  &kp _RSBRA                 &kp LEFT  &kp DOWN    &kp UP       &kp RIGHT    &kp _PERC  t____
-	t____     &kp _EGR     t____       t____        &kp _LCBRA  &kp _RCBRA                 t____     t____       t____        t____        t____      t____
-	                                     &none   t____   &kp _UNDS   t____   t____    t____   t____   &kp DEL   t____   &none
+	&kp _DOL &kp _DQUOT &kp _LGUIL &kp _RGUIL   &kp _LBRA  &kp _RBRA                               &kp _AT  &kp _PLUS &kp _MINUS &kp _SLASH &kp _AST  &kp _PERC
+	t____    &kp _ACU   &kp _LESS  &kp _GREAT   &kp _LSBRA &kp _RSBRA                              &kp LEFT &kp DOWN  &kp UP     &kp RIGHT  &kp _PERC t____
+	t____    &kp _EGR   &kp _PIPE  &kp _BCKSLSH &kp _LCBRA &kp _RCBRA t____  t____     t____ t____ &kp HOME &kp PG_DN &kp PG_UP  &kp END    t____     t____
+	                                       &none t____  &kp _UNDS     t____  t____     t____ t____ &kp DEL  t____   &none
 			>;
 
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -96,12 +141,43 @@
 // |  ESC  |  1  |  2  |  3   |  4   |  5    |                                          |  6   |  7    |  8    |  9   |   0   |   \  |
 // |  TAB  |  A  |  S  |  D   |  F   |  G    |                                          | LEFT | DOWN  |  UP   | RIGHT|       |      |
 // | SHIFT |  Z  |  X  |  C   |  V   |  B    | L SHIFT | L SHIFT |  | L SHIFT |   DEL   |  N   |  M    |  ,    |  .   |   /   | CTRL |
-
 //                     |  ⮾   | GUI  | L-ALT |   SPC   |   RET   |  |   RET   |   BSPC  | BSPC | R-ALT |   ⮾   |
 			bindings = <
-	&kp _HASH     &kp _1       &kp _2      &kp _3       &kp _4      &kp _5                  &kp _6    &kp _7      &kp _8       &kp _9       &kp _0 &kp _EQUAL
-	t____     t____        t____       t____        t____       t____                      &kp LEFT  &kp DOWN    &kp UP       &kp RIGHT    t____      t____
-	t____     t____        t____       t____        t____       t____               t____     t____       t____        t____        t____      t____
+	&kp _HASH &kp _1       &kp _2      &kp _3       &kp _4      &kp _5                             &kp _6    &kp _7      &kp _8       &kp _9       &kp _0 &kp _EQUAL
+	t____     &kp _ACU     t____       t____        t____       t____                              &kp LEFT  &kp DOWN    &kp UP       &kp RIGHT    t____      t____
+	t____     &kp _EGR     &kp _PIPE   &kp _BCKSLSH t____       t____ t____  t____    t____ t____  &kp HOME  &kp PG_DN   &kp PG_UP    &kp END      t____      t____
+	                                     &none   t____   t____   t____   t____    t____   t____    t____   t____   &none
+			>;
+
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+		};
+
+		win_ctrl_layer {
+// ---------------------------------------------------------------------------------------------------------------------------------
+// |  ESC  |  1  |  2  |  3   |  4   |  5    |                                          |  6   |  7    |  8    |  9   |   0   |   \  |
+// |  TAB  |  A  |  S  |  D   |  F   |  G    |                                          | LEFT | DOWN  |  UP   | RIGHT|       |      |
+// | SHIFT |  Z  |  X  |  C   |  V   |  B    | L SHIFT | L SHIFT |  | L SHIFT |   DEL   |  N   |  M    |  ,    |  .   |   /   | CTRL |
+//                     |  ⮾   | GUI  | L-ALT |   SPC   |   RET   |  |   RET   |   BSPC  | BSPC | R-ALT |   ⮾   |
+			bindings = <
+	_____     &kp LG(_1)   &kp LG(_2)  &kp LG(_3)   &kp LG(_4)  &kp LG(_5)              &kp _6    &kp _7      &kp _8       &kp _9       &kp _0 &kp _EQUAL
+	_____     _____        _____       _____        &kp LG(_F)  _____                   &kp LEFT  &kp DOWN    &kp UP       &kp RIGHT    t____      t____
+	_____     _____        _____       _____        _____       _____               t____     t____       t____        t____        t____      t____
+	                                     &none   t____   t____   t____   t____    t____   t____   &kp DEL   t____   &none
+			>;
+
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+		};
+
+	    fn_ctrl_layer {
+// ---------------------------------------------------------------------------------------------------------------------------------
+// |  ESC  | F1  | F2  | F3   | F4   | F5    |                                          |  6   |  7    |  8    |  9   |   0   |   \  |
+// |  TAB  |SHIFT| ALT | CTRL |  GUI |  G    |                                          | LEFT | DOWN  |  UP   | RIGHT|       |      |
+// | SHIFT |  Z  |  X  |  C   |  V   |  B    | L SHIFT | L SHIFT |  | L SHIFT |   DEL   |  N   |  M    |  ,    |  .   |   /   | CTRL |
+//                     |  ⮾   | GUI  | L-ALT |   SPC   |   RET   |  |   RET   |   BSPC  | BSPC | R-ALT |   ⮾   |
+			bindings = <
+	&kp F12   &kp F1       &kp F2      &kp F3       &kp F4      &kp F5              &kp F6    &kp F7      &kp F8       &kp F9       &kp F10    &kp F11
+	_____     &sk LSHFT    &sk LALT   &sk LCTRL     &sk LGUI    t____               t____     t____       t____        t____        t____      t____
+	_____     t____        t____       t____        t____       t____               t____     t____       t____        t____        t____      t____
 	                                     &none   t____   t____   t____   t____    t____   t____   &kp DEL   t____   &none
 			>;
 

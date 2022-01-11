@@ -29,7 +29,7 @@ _mount_left:
 	@DEV=$(shell readlink -e /dev/disk/by-id/*Adafruit*); \
 	ME=$(shell whoami); \
 	if [ -n "$${DEV}" ]; then \
-		echo "found Kyria mounting $${DEV} to /run/media/daf/NICENANO…"; \
+		echo "Found Kyria. Mounting $${DEV} to /run/media/daf/NICENANO…"; \
 		sudo mkdir -p /run/media/$${ME}/NICENANO ; \
 		sudo mount "$${DEV}" /run/media/$${ME}/NICENANO ; \
 	else \
