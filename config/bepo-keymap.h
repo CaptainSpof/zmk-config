@@ -57,7 +57,7 @@
 #define _M        SINGLE_QUOTE       // M
 
 // Row 4
-#define _ACU      Z                  // À
+#define _AGR      Z                  // À
 #define _Y        X                  // Y
 #define _X        C                  // X
 #define _DOT      V                  // .
@@ -95,7 +95,7 @@
 #define _9        LS(N9)          // 9
 #define _0        LS(N0)          // 0
 #define _DEG      LS(_SS)         // ?
-#define _GRAV     LS(_ACUT)       // ` (dead)
+#define _GRAV     LS(_AGR)       // ` (dead)
 
 #define _UNDS      RA(SPC)        // _
 #define _LSBRA     RA(N4)         // [

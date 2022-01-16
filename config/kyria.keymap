@@ -53,6 +53,8 @@
 #define min_D _MINUS _D
 #define sls_L _SLASH _L
 #define ast_J _AST _J
+#define agr_A _AGR _A
+#define egr_Z _EGR _Z
 
 &mt {
   flavor = "tap-preferred";
@@ -111,8 +113,8 @@
 //                     |  ⮾   | L-ALT | S·SPC | R·RET | WIN_CTRL |  |   RET   |   RET  | BSPC | R-ALT |   ⮾   |
 			bindings = <
 	&kp TAB   &mt dquot_B &mt less_ECU &mt great_P &mt lbra_O &mt rbra_W                                         &mt at_CIRC &mt plus_V &mt min_D &mt sls_L &mt ast_J &kp _CCED
-	&mt c_ESC &hm s_A     &hm a_U      &hm c_I     &hm g_E    &kp _COMMA                                         &kp _C      &hm g_T    &hm c_S   &hm a_R   &hm s_N   &kp _M
-	&mt s_Eq  &kp _Z      &kp _Y       &kp _X      &kp _DOT   &kp _K  &sl FN_CTRL  &tog LOWER &tog RAISE &kp DEL &kp _QUOT    &kp _Q     &kp _G    &kp _H    &kp _F    &mt s_Min
+	&mt c_ESC &mt agr_A   &hm a_U      &hm c_I     &hm g_E    &kp _COMMA                                         &kp _C      &hm g_T    &hm c_S   &hm a_R   &hm s_N   &kp _M
+	&mt s_Eq  &mt egr_Z   &kp _Y       &kp _X      &kp _DOT   &kp _K  &sl FN_CTRL  &tog LOWER &tog RAISE &kp DEL &kp _QUOT   &kp _Q     &kp _G    &kp _H    &kp _F    &mt s_Min
 	                           &kp C_PP &kp LALT &mt s_SPC  &lt l_RET &sl WIN_CTRL &kp RET    &lt r_RET  &mt s_BSPC &kp RALT &none
 			>;
 
@@ -128,7 +130,7 @@
 //                     |  ⮾   | GUI  | L-ALT |   SPC   |   RET   |  |   RET   |   BSPC  | BSPC | R-ALT |   ⮾   |
 			bindings = <
 	&kp _DOL &kp _DQUOT &kp _LGUIL &kp _RGUIL   &kp _LBRA  &kp _RBRA                               &kp _AT  &kp _PLUS &kp _MINUS &kp _SLASH &kp _AST  &kp _PERC
-	t____    &kp _ACU   &kp _LESS  &kp _GREAT   &kp _LSBRA &kp _RSBRA                              &kp LEFT &kp DOWN  &kp UP     &kp RIGHT  &kp _PERC t____
+	t____    &kp _AGR   &kp _LESS  &kp _GREAT   &kp _LSBRA &kp _RSBRA                              &kp LEFT &kp DOWN  &kp UP     &kp RIGHT  &kp _PERC t____
 	t____    &kp _EGR   &kp _PIPE  &kp _BCKSLSH &kp _LCBRA &kp _RCBRA t____  t____     t____ t____ &kp HOME &kp PG_DN &kp PG_UP  &kp END    t____     t____
 	                                       &none t____  &kp _UNDS     t____  t____     t____ t____ &kp DEL  t____   &none
 			>;
@@ -144,7 +146,7 @@
 //                     |  ⮾   | GUI  | L-ALT |   SPC   |   RET   |  |   RET   |   BSPC  | BSPC | R-ALT |   ⮾   |
 			bindings = <
 	&kp _HASH &kp _1       &kp _2      &kp _3       &kp _4      &kp _5                             &kp _6    &kp _7      &kp _8       &kp _9       &kp _0 &kp _EQUAL
-	t____     &kp _ACU     t____       t____        t____       t____                              &kp LEFT  &kp DOWN    &kp UP       &kp RIGHT    t____      t____
+	t____     &kp _AGR     t____       t____        t____       t____                              &kp LEFT  &kp DOWN    &kp UP       &kp RIGHT    t____      t____
 	t____     &kp _EGR     &kp _PIPE   &kp _BCKSLSH t____       t____ t____  t____    t____ t____  &kp HOME  &kp PG_DN   &kp PG_UP    &kp END      t____      t____
 	                                     &none   t____   t____   t____   t____    t____   t____    t____   t____   &none
 			>;
