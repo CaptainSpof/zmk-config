@@ -54,11 +54,13 @@
 #define lbra_O _LBRA _O
 #define rbra_W _RBRA _W
 
+// long press behavior
 #define at_CIRC _AT _CIRC
 #define plus_V _PLUS _V
 #define min_D _MINUS _D
 #define sls_L _SLASH _L
 #define ast_J _AST _J
+#define per_CC _PERC _CCED
 #define agr_A _AGR _A
 #define egr_Z _EGR _Z
 #define C_MIC_MUTE RG(RC(LA(RS(_M))))
@@ -125,7 +127,7 @@
 // |SHIFT·=|  Z  |  Y  |  X   |  .   |  K    | L SHIFT |  LOWER  |  |  RAISE  |   DEL   |  '   |  Q    |  G    |  H   |   F   |   =  |
 //                     |  ⮾   | L-ALT | S·SPC | R·RET | WIN_CTRL |  |   RET   |   RET  | BSPC | R-ALT |   ⮾   |
 			bindings = <
-	&kp TAB   &mt dquot_B &mt less_ECU &mt great_P &mt lbra_O &mt rbra_W                                         &mt at_CIRC &mt plus_V &mt min_D &mt sls_L &mt ast_J &kp _CCED
+	&kp TAB   &mt dquot_B &mt less_ECU &mt great_P &mt lbra_O &mt rbra_W                                         &mt at_CIRC &mt plus_V &mt min_D &mt sls_L &mt ast_J &mt per_CC
 	&mt c_ESC &mt agr_A   &hm a_U      &hm c_I     &hm g_E    &kp _COMMA                                         &kp _C      &hm g_T    &hm c_S   &hm a_R   &hm s_N   &kp _M
 	&mt s_Eq  &mt egr_Z   &kp _Y       &kp _X      &kp _DOT   &kp _K  &sl FN_CTRL  &tog LOWER &tog RAISE &kp DEL &kp _QUOT   &kp _Q     &kp _G    &kp _H    &kp _F    &mt s_Min
                                 &kp C_PP &kp LALT &mt s_SPC  &lt l_RET &sl WIN_CTRL &kp RET    &lt r_RET  &mt s_BSPC &kp RALT &kp C_MUTE
