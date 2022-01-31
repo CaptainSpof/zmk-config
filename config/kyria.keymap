@@ -124,13 +124,13 @@
 // ---------------------------------------------------------------------------------------------------------------------------------
 // |  TAB  |  B  |  É  |  P   |  O   |  W    |                                          |  ^   |  V    |  D    |  L   |   J   |   Ç  |
 // |  ESC  |  A  |  U  |  I   |  E   |  ,    |                                          |  C   |  T    |  S    |  R   |   N   |   M  |
-// |SHIFT·=|  Z  |  Y  |  X   |  .   |  K    | L SHIFT |  LOWER  |  |  RAISE  |   DEL   |  '   |  Q    |  G    |  H   |   F   |   =  |
+// |SHIFT·=|  Z  |  Y  |  X   |  .   |  K    | FN_CTRL |  LOWER  |  |  RAISE  |   DEL   |  '   |  Q    |  G    |  H   |   F   |   =  |
 //                     |  ⮾   | L-ALT | S·SPC | R·RET | WIN_CTRL |  |   RET   |   RET  | BSPC | R-ALT |   ⮾   |
 			bindings = <
-	&kp TAB   &mt dquot_B &mt less_ECU &mt great_P &mt lbra_O &mt rbra_W                                         &mt at_CIRC &mt plus_V &mt min_D &mt sls_L &mt ast_J &mt per_CC
-	&mt c_ESC &mt agr_A   &hm a_U      &hm c_I     &hm g_E    &kp _COMMA                                         &kp _C      &hm g_T    &hm c_S   &hm a_R   &hm s_N   &kp _M
-	&mt s_Eq  &mt egr_Z   &kp _Y       &kp _X      &kp _DOT   &kp _K  &sl FN_CTRL  &tog LOWER &tog RAISE &kp DEL &kp _QUOT   &kp _Q     &kp _G    &kp _H    &kp _F    &mt s_Min
-                                &kp C_PP &kp LALT &mt s_SPC  &lt l_RET &sl WIN_CTRL &kp RET    &lt r_RET  &mt s_BSPC &kp RALT &kp C_MUTE
+	&kp TAB   &mt dquot_B &mt less_ECU &mt great_P &mt lbra_O &mt rbra_W                                            &mt at_CIRC &mt plus_V &mt min_D &mt sls_L &mt ast_J &mt per_CC
+	&mt c_ESC &mt agr_A   &hm a_U      &hm c_I     &hm g_E    &kp _COMMA                                            &kp _C      &hm g_T    &hm c_S   &hm a_R   &hm s_N   &kp _M
+	&mt s_Eq  &mt egr_Z   &kp _Y       &kp _X      &kp _DOT   &kp _K &sl FN_CTRL &tog LOWER      &tog RAISE &kp DEL &kp _QUOT   &kp _Q     &kp _G    &kp _H    &kp _F    &mt s_Min
+                                &kp C_PP &kp LALT    &mt s_SPC       &lt l_RET   &sl WIN_CTRL    &to DEFAULT &lt r_RET  &mt s_BSPC &kp RALT &kp C_MUTE
 			>;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -189,13 +189,14 @@
 // ---------------------------------------------------------------------------------------------------------------------------------
 // |  ESC  | F1  | F2  | F3   | F4   | F5    |                                          |  6   |  7    |  8    |  9   |   0   |   \  |
 // |  TAB  |SHIFT| ALT | CTRL |  GUI |  G    |                                          | LEFT | DOWN  |  UP   | RIGHT|       |      |
-// | SHIFT |  Z  |  X  |  C   |  V   |  B    | L SHIFT | L SHIFT |  | L SHIFT |   DEL   |  N   |  M    |  ,    |  .   |   /   | CTRL |
+// | SHIFT |  Z  |  X  |  C   |  V   |  B    |    F11   |   F12   |  | L SHIFT |   DEL   |  N   |  M    |  ,    |  .   |   /   | CTRL |
 //                     |  ⮾   | GUI  | L-ALT |   SPC   |   RET   |  |   RET   |   BSPC  | BSPC | R-ALT |   ⮾   |
 			bindings = <
-	&kp F12   &kp F1       &kp F2      &kp F3       &kp F4      &kp F5              &kp F6    &kp F7      &kp F8       &kp F9       &kp F10    &kp F11
-	_____     &sk LSHFT    &sk LALT   &sk LCTRL     &sk LGUI    t____               t____     t____       t____        t____        t____      t____
-	_____     t____        t____       t____        t____       t____               t____     t____       t____        t____        t____      t____
-	                                     &none   t____   t____   t____   t____    t____   t____   &kp DEL   t____   &none
+	&kp F12  &kp F1     &kp F2    &kp F3     &kp F4      &kp F5                               &kp F6    &kp F7      &kp F8       &kp F9       &kp F10    &kp F11
+	_____    &sk LSHFT  &sk LALT  &sk LCTRL  &sk LGUI    t____                                t____     t____       t____        t____        t____      t____
+	_____    t____      t____      t____     t____       t____                                t____     t____       t____        t____        t____      t____
+	t____    t____      t____      t____     t____       t____  &kp F11 &kp F12  t____ t____  &kp HOME  &kp PG_DN   &kp PG_UP    &kp END      t____      t____
+	                                     &none   t____   t____  t____   t____    t____ t____   &kp DEL   t____   &none
 			>;
 
 			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
