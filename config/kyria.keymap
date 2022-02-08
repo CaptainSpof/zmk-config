@@ -133,7 +133,7 @@
                                 &kp C_PP &kp LALT    &mt s_SPC       &lt l_RET   &sl WIN_CTRL    &to DEFAULT &lt r_RET  &mt s_BSPC &kp RALT &kp C_MUTE
 			>;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp C_VOL_DN C_VOL_UP>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp DOWN UP>;
 		};
 
 
