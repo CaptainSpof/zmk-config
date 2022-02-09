@@ -15,7 +15,7 @@
 
 // Encoder resolutions
 &left_encoder   { resolution = <2>; };
-&right_encoder  { resolution = <4>; };
+&right_encoder  { resolution = <8>; };
 
 // layers
 #define DEFAULT   0
@@ -148,7 +148,7 @@
 	&kp _DOL  &kp _DQUOT &kp _LGUIL &kp _RGUIL   &kp _LBRA  &kp _RBRA                               &kp _AT  &kp _PLUS &kp _MINUS &kp _SLASH &kp _AST  &kp _PERC
 	t____     &kp _AGR   &kp _LESS  &kp _GREAT   &kp _LSBRA &kp _RSBRA                              &kp LEFT &kp DOWN  &kp UP     &kp RIGHT  &kp _PERC t____
 	&kp LSHFT &kp _EGR   &kp _PIPE  &kp _BCKSLSH &kp _LCBRA &kp _RCBRA t____  t____     t____ t____ &kp HOME &kp PG_DN &kp PG_UP  &kp END    t____     t____
-	                                       &kp C_DND t____  &kp _UNDS t____  t____     t____ t____ &kp DEL  t____   &kp C_MIC_MUTE
+	                                       &kp C_DND t____  &kp _UNDS  t____  t____     t____ t____ &kp DEL  t____   &kp C_MIC_MUTE
 			>;
 
 			sensor-bindings = <&inc_dec_kp C_PREV C_NEXT &inc_dec_kp PG_UP PG_DN>;
