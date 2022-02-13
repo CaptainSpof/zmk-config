@@ -177,10 +177,10 @@
 // | SHIFT |  Z  |  X  |  C   |  V   |  B    | L SHIFT | L SHIFT |  | L SHIFT |   DEL   |  N   |  M    |  ,    |  .   |   /   | CTRL |
 //                     |  ⮾   | GUI  | L-ALT |   SPC   |   RET   |  |   RET   |   BSPC  | BSPC | R-ALT |   ⮾   |
 			bindings = <
-	_____     &kp LG(_1)   &kp LG(_2)  &kp LG(_3)   &kp LG(_4)  &kp LG(_5)              &kp _6    &kp _7      &kp _8       &kp _9       &kp _0 &kp _EQUAL
-	_____     _____        _____       _____        &kp LG(_F)  _____                   &kp LEFT  &kp DOWN    &kp UP       &kp RIGHT    t____      t____
-	_____     _____        _____       _____        _____       _____               t____     t____       t____        t____        t____      t____
-	                                     &none   t____   t____   t____   t____    t____   t____   &kp DEL   t____   &none
+	_____     &kp LG(_1)   &kp LG(_2) &kp LG(_3)     &kp LG(_4)  &kp LG(_5)              &kp _6    &kp _7      &kp _8       &kp _9       &kp _0 &kp _EQUAL
+	_____     _____        _____      &kp LG(LC(_F)) &kp LG(_F)  _____                   &kp LEFT  &kp DOWN    &kp UP       &kp RIGHT    t____      t____
+	_____     _____        _____      _____          _____       _____               t____     t____       t____        t____        t____      t____
+	                                    &none   t____   t____   t____   t____    t____   t____   &kp DEL   t____   &none
 			>;
 
 			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
